@@ -6,19 +6,16 @@ A complete demonstration of property-based testing in a production-ready NestJS 
 
 ```
 2025s2-property-based-testing/
-├── IMPLEMENTATION_COMPLETE.md          ← Complete implementation summary
 ├── README.md                           ← You are here
+├── PROPERTY_BASED_TESTING.md           ← Complete testing guide
 └── user-crud-app/                      ← NestJS application
-    ├── src/users/
-    │   ├── domain/
-    │   │   └── user.property.spec.ts   ← 13 property tests
-    │   ├── application/
-    │   │   └── use-cases.property.spec.ts ← 18 property tests
-    │   └── presentation/
-    │       └── user.dto.property.spec.ts  ← 11 property tests
-    ├── TEST_SUMMARY.md                 ← Test results breakdown
-    ├── PROPERTY_BASED_TESTING.md       ← Complete testing guide
-    └── PROJECT_SUMMARY.md              ← Project documentation
+    └── src/users/
+        ├── domain/
+        │   └── user.property.spec.ts   ← 13 property tests
+        ├── application/
+        │   └── use-cases.property.spec.ts ← 18 property tests
+        └── presentation/
+            └── user.dto.property.spec.ts  ← 11 property tests
 ```
 
 ## 🚀 Quick Start
