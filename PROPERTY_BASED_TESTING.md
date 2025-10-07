@@ -8,35 +8,6 @@ This application includes comprehensive **property-based testing** using [fast-c
 
 Unlike traditional example-based tests that check specific inputs and outputs, property-based tests verify **universal properties** that should hold true for **all valid inputs**.
 
-### Example Comparison
-
-**Traditional Test:**
-```typescript
-it('should create a user', () => {
-  const user = new User('123', 'john@example.com', 'John', 'Doe', 30, new Date(), new Date());
-  expect(user.email).toBe('john@example.com');
-});
-```
-
-**Property-Based Test:**
-```typescript
-it('should always create a user with the exact properties provided', () => {
-  fc.assert(
-    fc.property(
-      fc.uuid(),           // Generate random UUIDs
-      fc.emailAddress(),   // Generate random emails
-      fc.string(),         // Generate random strings
-      fc.string(),
-      fc.integer({ min: 0, max: 150 }),
-      (id, email, firstName, lastName, age) => {
-        const user = new User(id, email, firstName, lastName, age, new Date(), new Date());
-        expect(user.email).toBe(email);  // Property holds for ANY email
-      }
-    )
-  );
-});
-```
-
 ## Property-Based Test Files
 
 ### 1. Domain Layer Tests
@@ -207,49 +178,6 @@ expect(user.age).toBeGreaterThanOrEqual(0);
 // Encode then decode returns original
 const dto = plainToInstance(CreateUserDto, data);
 expect(dto).toMatchObject(data);
-```
-
-## Benefits
-
-### 1. **Comprehensive Coverage**
-- Tests hundreds of scenarios automatically
-- Finds edge cases you didn't think of
-- Covers boundary conditions
-
-### 2. **Regression Detection**
-- Catches breaking changes
-- Ensures invariants hold
-- Validates assumptions
-
-### 3. **Documentation**
-- Properties serve as specification
-- Expresses intent clearly
-- Shows expected behavior
-
-### 4. **Confidence**
-- Proves correctness mathematically
-- Reduces bugs in production
-- Validates business rules
-
-
-### Common Issues
-
-**Issue:** Test times out
-```typescript
-// Solution: Reduce numRuns or use asyncProperty
-fc.assert(fc.asyncProperty(...), { numRuns: 10, timeout: 5000 });
-```
-
-**Issue:** Too many invalid inputs
-```typescript
-// Solution: Use fc.pre() or better generators
-fc.pre(input.length > 0);  // Skip invalid cases
-```
-
-**Issue:** Flaky tests
-```typescript
-// Solution: Set a fixed seed for reproducibility
-fc.assert(prop, { seed: 42 });
 ```
 
 ## Further Reading
