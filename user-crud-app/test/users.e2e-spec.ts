@@ -14,9 +14,11 @@ describe('Users API (e2e)', () => {
     }).compile();
 
     app = moduleFixture.createNestApplication();
-    app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }));
+    app.useGlobalPipes(
+      new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
+    );
     prisma = app.get<PrismaService>(PrismaService);
-    
+
     await app.init();
   });
 
@@ -89,8 +91,18 @@ describe('Users API (e2e)', () => {
     it('should return an array of users', async () => {
       await prisma.user.createMany({
         data: [
-          { email: 'user1@example.com', firstName: 'User', lastName: 'One', age: 25 },
-          { email: 'user2@example.com', firstName: 'User', lastName: 'Two', age: 30 },
+          {
+            email: 'user1@example.com',
+            firstName: 'User',
+            lastName: 'One',
+            age: 25,
+          },
+          {
+            email: 'user2@example.com',
+            firstName: 'User',
+            lastName: 'Two',
+            age: 30,
+          },
         ],
       });
 

@@ -1,5 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { CreateUserUseCase, GetAllUsersUseCase, GetUserByIdUseCase, UpdateUserUseCase, DeleteUserUseCase } from './use-cases';
+import {
+  CreateUserUseCase,
+  GetAllUsersUseCase,
+  GetUserByIdUseCase,
+  UpdateUserUseCase,
+  DeleteUserUseCase,
+} from './use-cases';
 import { USER_REPOSITORY, UserRepository } from '../domain/user.repository';
 import { User } from '../domain/user.entity';
 
@@ -100,8 +106,24 @@ describe('User Use Cases', () => {
   describe('GetAllUsersUseCase', () => {
     it('should return all users', async () => {
       const users = [
-        new User('1', 'user1@example.com', 'User', 'One', 25, new Date(), new Date()),
-        new User('2', 'user2@example.com', 'User', 'Two', 30, new Date(), new Date()),
+        new User(
+          '1',
+          'user1@example.com',
+          'User',
+          'One',
+          25,
+          new Date(),
+          new Date(),
+        ),
+        new User(
+          '2',
+          'user2@example.com',
+          'User',
+          'Two',
+          30,
+          new Date(),
+          new Date(),
+        ),
       ];
 
       mockRepository.findAll.mockResolvedValue(users);
@@ -115,7 +137,15 @@ describe('User Use Cases', () => {
 
   describe('GetUserByIdUseCase', () => {
     it('should return a user by id', async () => {
-      const user = new User('1', 'test@example.com', 'Test', 'User', 25, new Date(), new Date());
+      const user = new User(
+        '1',
+        'test@example.com',
+        'Test',
+        'User',
+        25,
+        new Date(),
+        new Date(),
+      );
 
       mockRepository.findById.mockResolvedValue(user);
 
@@ -128,15 +158,33 @@ describe('User Use Cases', () => {
     it('should throw error if user not found', async () => {
       mockRepository.findById.mockResolvedValue(null);
 
-      await expect(getUserByIdUseCase.execute('1')).rejects.toThrow('User not found');
+      await expect(getUserByIdUseCase.execute('1')).rejects.toThrow(
+        'User not found',
+      );
     });
   });
 
   describe('UpdateUserUseCase', () => {
     it('should update a user', async () => {
-      const existingUser = new User('1', 'old@example.com', 'Old', 'User', 25, new Date(), new Date());
+      const existingUser = new User(
+        '1',
+        'old@example.com',
+        'Old',
+        'User',
+        25,
+        new Date(),
+        new Date(),
+      );
       const updateData = { firstName: 'New' };
-      const updatedUser = new User('1', 'old@example.com', 'New', 'User', 25, new Date(), new Date());
+      const updatedUser = new User(
+        '1',
+        'old@example.com',
+        'New',
+        'User',
+        25,
+        new Date(),
+        new Date(),
+      );
 
       mockRepository.findById.mockResolvedValue(existingUser);
       mockRepository.update.mockResolvedValue(updatedUser);
@@ -150,15 +198,23 @@ describe('User Use Cases', () => {
     it('should throw error if user not found', async () => {
       mockRepository.findById.mockResolvedValue(null);
 
-      await expect(updateUserUseCase.execute('1', { firstName: 'New' })).rejects.toThrow(
-        'User not found',
-      );
+      await expect(
+        updateUserUseCase.execute('1', { firstName: 'New' }),
+      ).rejects.toThrow('User not found');
     });
   });
 
   describe('DeleteUserUseCase', () => {
     it('should delete a user', async () => {
-      const user = new User('1', 'test@example.com', 'Test', 'User', 25, new Date(), new Date());
+      const user = new User(
+        '1',
+        'test@example.com',
+        'Test',
+        'User',
+        25,
+        new Date(),
+        new Date(),
+      );
 
       mockRepository.findById.mockResolvedValue(user);
       mockRepository.delete.mockResolvedValue(undefined);
@@ -171,7 +227,9 @@ describe('User Use Cases', () => {
     it('should throw error if user not found', async () => {
       mockRepository.findById.mockResolvedValue(null);
 
-      await expect(deleteUserUseCase.execute('1')).rejects.toThrow('User not found');
+      await expect(deleteUserUseCase.execute('1')).rejects.toThrow(
+        'User not found',
+      );
     });
   });
 });

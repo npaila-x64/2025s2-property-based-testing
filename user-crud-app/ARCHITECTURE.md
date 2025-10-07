@@ -8,7 +8,7 @@ This application implements the **Hexagonal Architecture** (also known as **Port
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     Presentation Layer                       │
+│                     Presentation Layer                      │
 │  ┌────────────────────────────────────────────────────────┐ │
 │  │  UserController (HTTP REST API)                        │ │
 │  │  - POST   /users                                       │ │
@@ -16,17 +16,17 @@ This application implements the **Hexagonal Architecture** (also known as **Port
 │  │  - GET    /users/:id                                   │ │
 │  │  - PUT    /users/:id                                   │ │
 │  │  - DELETE /users/:id                                   │ │
-│  │                                                         │ │
+│  │                                                        │ │
 │  │  DTOs: CreateUserDto, UpdateUserDto, UserResponseDto   │ │
 │  └────────────────────────────────────────────────────────┘ │
 └─────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                     Application Layer                        │
+│                     Application Layer                       │
 │  ┌────────────────────────────────────────────────────────┐ │
 │  │  Use Cases (Business Logic)                            │ │
-│  │                                                         │ │
+│  │                                                        │ │
 │  │  • CreateUserUseCase                                   │ │
 │  │  • GetAllUsersUseCase                                  │ │
 │  │  • GetUserByIdUseCase                                  │ │
@@ -37,13 +37,13 @@ This application implements the **Hexagonal Architecture** (also known as **Port
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                       Domain Layer                           │
+│                       Domain Layer                          │
 │  ┌────────────────────────────────────────────────────────┐ │
 │  │  Core Business Entities & Interfaces                   │ │
-│  │                                                         │ │
+│  │                                                        │ │
 │  │  • User Entity                                         │ │
 │  │  • UserRepository Interface (Port)                     │ │
-│  │                                                         │ │
+│  │                                                        │ │
 │  │  Business Rules:                                       │ │
 │  │  - Email must be unique                                │ │
 │  │  - Age must be positive                                │ │
@@ -52,13 +52,13 @@ This application implements the **Hexagonal Architecture** (also known as **Port
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                   Infrastructure Layer                       │
+│                   Infrastructure Layer                      │
 │  ┌────────────────────────────────────────────────────────┐ │
 │  │  Adapters (External Services)                          │ │
-│  │                                                         │ │
+│  │                                                        │ │
 │  │  • PrismaUserRepository (Adapter)                      │ │
 │  │  • PrismaService                                       │ │
-│  │                                                         │ │
+│  │                                                        │ │
 │  │  External Dependencies:                                │ │
 │  │  - PostgreSQL Database                                 │ │
 │  │  - Prisma ORM                                          │ │
@@ -176,69 +176,6 @@ This allows:
 - Better testability (mock repositories)
 - Loose coupling between layers
 
-## Benefits of This Architecture
-
-### 1. **Testability**
-- Each layer can be tested in isolation
-- Easy to mock dependencies
-- Use cases can be tested without HTTP or database
-
-### 2. **Maintainability**
-- Clear separation of concerns
-- Changes in one layer don't affect others
-- Easy to locate and fix bugs
-
-### 3. **Flexibility**
-- Can swap Prisma for TypeORM without touching business logic
-- Can add GraphQL alongside REST without modifying use cases
-- Framework-independent core business logic
-
-### 4. **Scalability**
-- Easy to add new features
-- Simple to extend functionality
-- Clear structure for growing teams
-
-### 5. **Technology Independence**
-- Core business logic doesn't depend on frameworks
-- Can migrate to different frameworks/databases easily
-- Protects against technology obsolescence
-
-## Testing Strategy
-
-### Unit Tests
-```typescript
-// Testing Use Cases
-describe('CreateUserUseCase', () => {
-  let mockRepository: MockUserRepository;
-  
-  it('should create user', async () => {
-    // Test with mocked repository
-  });
-});
-```
-
-### Integration Tests
-```typescript
-// Testing Repository Implementation
-describe('PrismaUserRepository', () => {
-  let prisma: PrismaService;
-  
-  it('should save user to database', async () => {
-    // Test with real database
-  });
-});
-```
-
-### E2E Tests
-```typescript
-// Testing full flow
-describe('POST /users', () => {
-  it('should create user via API', async () => {
-    // Test complete request/response cycle
-  });
-});
-```
-
 ## Design Patterns Used
 
 1. **Repository Pattern**: Abstracts data access
@@ -270,31 +207,3 @@ src/
     │
     └── users.module.ts      # Module configuration
 ```
-
-## Future Enhancements
-
-Potential additions while maintaining the architecture:
-
-1. **Add GraphQL API**
-   - Create new presentation layer adapter
-   - Reuse same use cases and domain logic
-
-2. **Add Caching**
-   - Create cached repository decorator
-   - Wrap existing repository
-
-3. **Add Event Sourcing**
-   - Emit domain events from use cases
-   - Add event handlers in infrastructure
-
-4. **Add Authentication**
-   - Add auth middleware in presentation layer
-   - Add user context to use cases
-
-5. **Add Multiple Databases**
-   - Create different repository implementations
-   - Use factory pattern to select repository
-
-## Conclusion
-
-This hexagonal architecture provides a solid foundation for building scalable, maintainable applications. The clear separation of concerns ensures that the codebase remains clean and adaptable to changing requirements.

@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1759795747279" clover="3.2.0">
+  <project timestamp="1759795747279" name="All files">
+    <metrics statements="137" coveredstatements="59" conditionals="84" coveredconditionals="16" methods="33" coveredmethods="11" elements="254" coveredelements="86" complexity="0" loc="137" ncloc="137" packages="6" files="12" classes="12"/>
+    <package name="src">
+      <metrics statements="22" coveredstatements="6" conditionals="6" coveredconditionals="3" methods="4" coveredmethods="0"/>
+      <file name="app.controller.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/app.controller.ts">
+        <metrics statements="6" coveredstatements="4" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="0" type="cond" truecount="3" falsecount="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+      <file name="app.module.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/app.module.ts">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+      </file>
+      <file name="app.service.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/app.service.ts">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="main.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/main.ts">
+        <metrics statements="8" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.users">
+      <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="users.module.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/users/users.module.ts">
+        <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.users.application">
+      <metrics statements="33" coveredstatements="32" conditionals="14" coveredconditionals="13" methods="10" coveredmethods="10"/>
+      <file name="use-cases.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/users/application/use-cases.ts">
+        <metrics statements="33" coveredstatements="32" conditionals="14" coveredconditionals="13" methods="10" coveredmethods="10"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="14" count="180" type="stmt"/>
+        <line num="19" count="180" type="stmt"/>
+        <line num="20" count="180" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="50" type="stmt"/>
+        <line num="24" count="130" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="32" count="60" type="stmt"/>
+        <line num="36" count="60" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="44" count="130" type="stmt"/>
+        <line num="48" count="130" type="stmt"/>
+        <line num="49" count="130" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="50" type="stmt"/>
+        <line num="52" count="80" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="60" count="110" type="stmt"/>
+        <line num="65" count="110" type="stmt"/>
+        <line num="66" count="110" type="cond" truecount="1" falsecount="1"/>
+        <line num="67" count="0" type="stmt"/>
+        <line num="71" count="110" type="cond" truecount="4" falsecount="0"/>
+        <line num="72" count="60" type="stmt"/>
+        <line num="73" count="60" type="cond" truecount="2" falsecount="0"/>
+        <line num="74" count="30" type="stmt"/>
+        <line num="78" count="80" type="stmt"/>
+        <line num="83" count="2" type="stmt"/>
+        <line num="86" count="100" type="stmt"/>
+        <line num="90" count="100" type="stmt"/>
+        <line num="91" count="100" type="cond" truecount="2" falsecount="0"/>
+        <line num="92" count="50" type="stmt"/>
+        <line num="95" count="50" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.users.domain">
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="user.entity.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/users/domain/user.entity.ts">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="3" count="1931" type="stmt"/>
+        <line num="4" count="1931" type="stmt"/>
+        <line num="5" count="1931" type="stmt"/>
+        <line num="6" count="1931" type="stmt"/>
+        <line num="7" count="1931" type="stmt"/>
+        <line num="8" count="1931" type="stmt"/>
+        <line num="9" count="1931" type="stmt"/>
+      </file>
+      <file name="user.repository.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/users/domain/user.repository.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="26" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.users.infrastructure">
+      <metrics statements="22" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="10" coveredmethods="0"/>
+      <file name="prisma-user.repository.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/users/infrastructure/prisma-user.repository.ts">
+        <metrics statements="17" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+      </file>
+      <file name="prisma.service.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/users/infrastructure/prisma.service.ts">
+        <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.users.presentation">
+      <metrics statements="44" coveredstatements="12" conditionals="56" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <file name="user.controller.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/users/presentation/user.controller.ts">
+        <metrics statements="32" coveredstatements="0" conditionals="56" coveredconditionals="0" methods="8" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="8"/>
+        <line num="27" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="28" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="29" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="51" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="57" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="75" count="0" type="stmt"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="88" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="89" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="92" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+      </file>
+      <file name="user.dto.ts" path="/home/nicolas/Repositories/Personal/2025s2-property-based-testing/user-crud-app/src/users/presentation/user.dto.ts">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
