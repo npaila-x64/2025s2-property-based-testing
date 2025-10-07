@@ -187,7 +187,7 @@ describe('User DTOs - Property-Based Tests', () => {
         fc.asyncProperty(
           fc.constantFrom('email', 'firstName', 'lastName', 'age'),
           async (fieldToOmit) => {
-            const validData = {
+            const validData: Record<string, string | number> = {
               email: 'test@example.com',
               firstName: 'Test',
               lastName: 'User',
@@ -195,7 +195,7 @@ describe('User DTOs - Property-Based Tests', () => {
             };
 
             const invalidData = { ...validData };
-            delete (invalidData as any)[fieldToOmit];
+            delete invalidData[fieldToOmit];
 
             const dto = plainToInstance(CreateUserDto, invalidData);
             const errors = await validate(dto);
@@ -297,7 +297,7 @@ describe('User DTOs - Property-Based Tests', () => {
           fc.boolean(),
           fc.boolean(),
           async (hasEmail, hasFirstName, hasLastName, hasAge) => {
-            const updateData: any = {};
+            const updateData: Record<string, string | number> = {};
 
             if (hasEmail) updateData.email = 'test@example.com';
             if (hasFirstName) updateData.firstName = 'Test';

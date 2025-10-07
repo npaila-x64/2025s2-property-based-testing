@@ -1,4 +1,4 @@
-import { Test, TestingModule } from '@nestjs/testing';
+import { Test } from '@nestjs/testing';
 import * as fc from 'fast-check';
 import {
   CreateUserUseCase,
@@ -223,7 +223,7 @@ describe('Use Cases - Property-Based Tests', () => {
 
     it('should handle empty user lists', async () => {
       await fc.assert(
-        fc.asyncProperty(fc.constant([]), async (emptyArray) => {
+        fc.asyncProperty(fc.constant([] as User[]), async (emptyArray) => {
           const module = await Test.createTestingModule({
             providers: [
               GetAllUsersUseCase,

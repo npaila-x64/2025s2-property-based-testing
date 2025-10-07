@@ -24,7 +24,7 @@ export class PrismaUserRepository implements UserRepository {
       orderBy: { createdAt: 'desc' },
     });
 
-    return users.map(this.mapToEntity);
+    return users.map((user) => this.mapToEntity(user));
   }
 
   async findById(id: string): Promise<User | null> {
@@ -58,7 +58,15 @@ export class PrismaUserRepository implements UserRepository {
     });
   }
 
-  private mapToEntity(user: any): User {
+  private mapToEntity(user: {
+    id: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    age: number;
+    createdAt: Date;
+    updatedAt: Date;
+  }): User {
     return new User(
       user.id,
       user.email,

@@ -18,6 +18,7 @@ import {
   GetUserByIdUseCase,
   UpdateUserUseCase,
 } from '../application/use-cases';
+import { User } from '../domain/user.entity';
 import { CreateUserDto, UpdateUserDto, UserResponseDto } from './user.dto';
 
 @Controller('users')
@@ -39,11 +40,10 @@ export class UserController {
     try {
       const user = await this.createUserUseCase.execute(createUserDto);
       return this.mapToResponse(user);
-    } catch (error) {
-      throw new HttpException(
-        error.message || 'Failed to create user',
-        HttpStatus.BAD_REQUEST,
-      );
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error ? error.message : 'Failed to create user';
+      throw new HttpException(message, HttpStatus.BAD_REQUEST);
     }
   }
 
@@ -58,11 +58,9 @@ export class UserController {
     try {
       const user = await this.getUserByIdUseCase.execute(id);
       return this.mapToResponse(user);
-    } catch (error) {
-      throw new HttpException(
-        error.message || 'User not found',
-        HttpStatus.NOT_FOUND,
-      );
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'User not found';
+      throw new HttpException(message, HttpStatus.NOT_FOUND);
     }
   }
 
@@ -75,11 +73,10 @@ export class UserController {
     try {
       const user = await this.updateUserUseCase.execute(id, updateUserDto);
       return this.mapToResponse(user);
-    } catch (error) {
-      throw new HttpException(
-        error.message || 'Failed to update user',
-        HttpStatus.BAD_REQUEST,
-      );
+    } catch (error: unknown) {
+      const message =
+        error instanceof Error ? error.message : 'Failed to update user';
+      throw new HttpException(message, HttpStatus.BAD_REQUEST);
     }
   }
 
@@ -88,15 +85,13 @@ export class UserController {
   async remove(@Param('id') id: string): Promise<void> {
     try {
       await this.deleteUserUseCase.execute(id);
-    } catch (error) {
-      throw new HttpException(
-        error.message || 'User not found',
-        HttpStatus.NOT_FOUND,
-      );
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'User not found';
+      throw new HttpException(message, HttpStatus.NOT_FOUND);
     }
   }
 
-  private mapToResponse(user: any): UserResponseDto {
+  private mapToResponse(user: User): UserResponseDto {
     return {
       id: user.id,
       email: user.email,
